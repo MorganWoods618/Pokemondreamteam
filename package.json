@@ -1,0 +1,23 @@
+{
+  "name": "pokemondreamteam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorganWoods618/Pokemondreamteam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MorganWoods618/Pokemondreamteam/issues"
+  },
+  "homepage": "https://github.com/MorganWoods618/Pokemondreamteam#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
