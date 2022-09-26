@@ -2,8 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var morgan = require('morgan');
-var User = require('./models/user');
+// var morgan = require('morgan');
+// var User = require('./models/user');
 var hbs = require('express-handlebars'); 
 var path = require('path'); 
 
@@ -15,31 +15,27 @@ var app = express();
 app.set('port', 3001);
 
 // set morgan to log info about our requests for development use.
-const express = require("express");
-const morgan = require("morgan");
 
-const app = express();
+// app.use(morgan("tiny"));
+// app.listen(3001, () => {
+//   console.debug("App listening on :3001");
+// });
 
-app.use(morgan("tiny"));
-app.listen(3001, () => {
-  console.debug("App listening on :3001");
-});
+// morgan.token("host", function (req, res) {
+//   return req.hostname;
+// });
 
-morgan.token("host", function (req, res) {
-  return req.hostname;
-});
+// app.use(
+//   morgan(
+//     ":method :host :status :param[id] :res[content-length] - :response-time ms"
+//   )
+// );
 
-app.use(
-  morgan(
-    ":method :host :status :param[id] :res[content-length] - :response-time ms"
-  )
-);
+// morgan.token("param", function (req, res, param) {
+//   return req.params[param];
+// });
 
-morgan.token("param", function (req, res, param) {
-  return req.params[param];
-});
-
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 // initialize body-parser to parse incoming parameters requests to req.body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -173,4 +169,4 @@ app.use(function (req, res, next) {
 
 
 // start the express server
-app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
+app.listen(app.get('port'), () => console.log(`Server listening on http://localhost:${app.get('port')}`));
