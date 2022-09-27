@@ -18,6 +18,8 @@ app.use(express.static('public'));
 
 
 app.set('view engine', 'handlebars');
+
+app.use(require('./routes/api/characterRoutes'));
 // set morgan to log info about our requests for development use.
 
 // app.use(morgan("tiny"));

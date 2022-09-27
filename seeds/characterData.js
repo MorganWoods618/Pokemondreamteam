@@ -87,7 +87,7 @@ const characterdata = [
     },
     {
       name: 'Weedle',
-      Number: 13
+      Number: 13,
       type: 'Bug, Poison',
       generation: '1',
       catchrate: 43.9,
@@ -322,4 +322,4 @@ const characterdata = [
       type: 'Bug, Grass',
       generation: '1',
       catchrate: 17.5,
-    },
+    }]
