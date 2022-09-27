@@ -24,11 +24,7 @@ Character.init(
     },
     catchrate: {
       type: DataTypes.DECIMAL,
-    },
-    // is active may or may not be a viable input
-    is_active: {
-      type: DataTypes.BOOLEAN,
-    },
+    }
   },
   {
     sequelize,

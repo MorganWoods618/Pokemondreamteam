@@ -19,7 +19,7 @@
   "homepage": "https://github.com/MorganWoods618/Pokemondreamteam#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "bulma": "^0.9.4",
+    "bootstrap": "^5.2.1",
     "connect-session-sequelize": "^7.0.4",
     "cookie-parser": "^1.4.6",
     "dotenv": "^8.2.0",
