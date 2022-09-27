@@ -7,13 +7,17 @@ var session = require('express-session');
 var hbs = require('express-handlebars'); 
 var path = require('path'); 
 
-
 // invoke an instance of express application.
 var app = express();
 
 // set our application port
 app.set('port', 3001);
 
+//image
+app.use(express.static('public'));
+
+
+app.set('view engine', 'handlebars');
 // set morgan to log info about our requests for development use.
 
 // app.use(morgan("tiny"));
@@ -160,6 +164,7 @@ app.get('/logout', (req, res) => {
         res.redirect('/login');
     }
 });
+
 
 
 // route for handling 404 requests(unavailable routes)
