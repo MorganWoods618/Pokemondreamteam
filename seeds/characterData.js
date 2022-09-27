@@ -400,7 +400,6 @@ const characterdata = [
       generation: '1',
       catchrate: 17.5,
     },
-
     {
       name: 'Growlithe',
       Number: 58,
@@ -408,3 +407,59 @@ const characterdata = [
       generation: '1',
       catchrate: 17.5,
     },
+    {
+      name: 'Arcanine',
+      Number: 59,
+      type: 'Fire',
+      generation: '1',
+      catchrate: 17.5,
+    },
+    {
+      name: 'Poliwag',
+      Number: 60,
+      type: 'Water',
+      generation: '1',
+      catchrate: 17.5,
+    },
+    {
+      name: 'Poliwhirl',
+      Number: 61,
+      type: 'Water',
+      generation: '1',
+      catchrate: 17.5,
+    },
+    {
+      name: 'Poliwrath',
+      Number: 62,
+      type: 'Water, Fighting',
+      generation: '1',
+      catchrate: 17.5,
+    },
+    {
+      name: 'Abra',
+      Number: 63,
+      type: 'Psychic',
+      generation: '1',
+      catchrate: 17.5,
+    },
+    {
+      name: 'Kadabra',
+      Number: 64,
+      type: 'Psychic',
+      generation: '1',
+      catchrate: 17.5,
+    },
+    {
+      name: 'Alakazam',
+      Number: 65,
+      type: 'Psychic',
+      generation: '1',
+      catchrate: 17.5,
+    },
+    {
+      name: 'Machop',
+      Number: 66,
+      type: 'Fire',
+      generation: '1',
+      catchrate: 17.5,
+    }

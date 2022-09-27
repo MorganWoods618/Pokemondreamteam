@@ -16,8 +16,7 @@ Character.init(
       type: DataTypes.STRING,
     },
     type: {
-      type: DataTypes.ARRAY,
-      //not sure the above data type works, they can have up to two types
+      type: DataTypes.STRING,
     },
     generation: {
       type: DataTypes.INTEGER,
