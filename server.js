@@ -16,7 +16,6 @@ app.set('port', 3001);
 //image
 app.use(express.static('public'));
 
-
 app.set('view engine', 'handlebars');
 // set morgan to log info about our requests for development use.
 
