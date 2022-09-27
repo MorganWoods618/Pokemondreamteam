@@ -3,7 +3,15 @@ const path = require('path');
 
 // Import the model
 const Character = require('../../models/Character');
-
+router.get('/', (req, res)=>{
+  Character.findAll({})
+  .then((newCharacter) => {
+    res.json(newCharacter);
+  })
+  .catch((err) => {
+    res.json(err);
+  });
+}) 
 // CREATE a character
 router.post('/', (req, res) => {
   // Use Sequelize's `create()` method to add a row to the table
@@ -26,33 +34,32 @@ router.post('/', (req, res) => {
 });
 
 // CREATE characters
-router.post('/seed', (req, res) => {
-  // Multiple rows can be created with `bulkCreate()` and an array
-  // This could also be moved to a separate Node.js script to ensure it only happens once
-  Character.bulkCreate([
-    {
-      name: 'Bulbasaur',
-      Number: 1
-      type: 'Grass, Poison',
-      generation: '1',
-      catchrate: 11.9,
-    };
-    //   ****THIS NEEDS TO BE SEEDED WITH A BUNCH OF STATS IN THE SAME FORMAT AS THE MODEL***
+// router.post('/seed', (req, res) => {
+//   // Multiple rows can be created with `bulkCreate()` and an array
+//   // This could also be moved to a separate Node.js script to ensure it only happens once
+//   Character.bulkCreate([
+//     {
+//       name: 'Bulbasaur',
+//       Number: 1,
+//       type: 'Grass, Poison',
+//       catchrate: 11.9
+//     };
+//     //   ****THIS NEEDS TO BE SEEDED WITH A BUNCH OF STATS IN THE SAME FORMAT AS THE MODEL***
 
 
-    /// also prob should switch this to async/await
-    // in activity 10 ORM 
-    /// async after "post" above, await below
+//     /// also prob should switch this to async/await
+//     // in activity 10 ORM 
+//     /// async after "post" above, await below
 
 
-  ])
-    .then(() => {
-      res.send('Database seeded!');
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
+//   ])
+//     .then(() => {
+//       res.send('Database seeded!');
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
 
 module.exports = router;
 

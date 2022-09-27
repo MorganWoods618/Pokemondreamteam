@@ -6,7 +6,9 @@ var session = require('express-session');
 // var User = require('./models/user');
 var hbs = require('express-handlebars'); 
 var path = require('path'); 
-
+var sequelize = require('./config/connection')
+var routes = require('./routes');
+const Character = require('./models/Character');
 // invoke an instance of express application.
 var app = express();
 
@@ -97,7 +99,12 @@ app.route('/signup')
     //.get(sessionChecker, (req, res) => {
     .get((req, res) => {
         //res.sendFile(__dirname + '/public/signup.html');
-        res.render('signup', hbsContent);
+        Character.findAll({})
+        .then(CharacterData=>{
+            const characters = CharacterData.map(character=>character.get({plain:true}))
+            res.render('signup', {characters});
+
+        })
     })
     .post((req, res) => {
         User.create({
@@ -170,10 +177,11 @@ app.get('/logout', (req, res) => {
 
 
 // route for handling 404 requests(unavailable routes)
-app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!")
-});
-
-
+// app.use(function (req, res, next) {
+//   res.status(404).send("Sorry can't find that!")
+// });
+app.use(routes)
+sequelize.sync({force:false}).then(function(){
 // start the express server
 app.listen(app.get('port'), () => console.log(`Server listening on http://localhost:${app.get('port')}`));
+})
