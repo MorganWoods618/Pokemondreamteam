@@ -6,7 +6,7 @@ var hbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var express = require("express");
 var path = require("path");
-
+// var routes = require("./")
 var app = express();
 app.set("port", 3001);
 app.use(morgan("dev"));
