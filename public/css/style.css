@@ -1,9 +1,19 @@
-img {
+.icon {
     max-height: 50px;
     border-radius: 50%;
     
 }
 
 .nav {
-    background-color: red;
+    background-color: #FB1B1B;
+    color: black;
+    align-items: center;
+}
+
+.card{
+    background-color: #FB1B1B;
+}
+
+.list-group{
+    background-color: #FB1B1B;
 }
