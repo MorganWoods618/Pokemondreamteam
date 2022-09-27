@@ -1,0 +1,46 @@
+html {
+    background-image: url("../images/pokebackground.png");
+    background-size: cover;
+    position: static;
+}
+
+.header-photo{
+    max-height: 200px;
+    
+}
+.mainicon {
+    max-height: 50px;
+    border-radius: 50%;
+
+}
+.icon {
+    max-height: 40px;
+    max-width: 40px;
+    border-radius: 50%;
+}
+
+.list-group {
+    background-color: #FB1B1B;
+}
+
+body {
+    background-color: transparent;
+}
+
+.dashtitle {
+    text-align: left;
+}
+
+.card-background-img{
+    height: 300px;
+
+}
+.list-group-item{
+    font-size: large;
+    padding-top: 10px;
+}
+
+.types{
+    background-color: #e1a5a5;
+    border-radius: 50%;
+}

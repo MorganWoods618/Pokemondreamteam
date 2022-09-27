@@ -1,10 +1,10 @@
 const sequelize = require('../config/connection');
-const seedCharacter = require('./charaterData');
+const seedCharacters = require('./characterData');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-  await seedCharacter();
+  await seedCharacters();
 
   process.exit(0);
 };
