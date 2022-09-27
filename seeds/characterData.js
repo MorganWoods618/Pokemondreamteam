@@ -108,7 +108,7 @@ const characterdata = [
     },
     {
       name: 'Pidgey',
-      Number: 16
+      Number: 16,
       type: 'Normal, Flying',
       generation: '1',
       catchrate: 43.9,
