@@ -695,7 +695,7 @@ const characterData = [
       type: 'Water',
       generation: '1',
       catchrate: 17.5,
-    }
+    },
     {
       name: 'Voltorb',
       Number: 100,
@@ -711,13 +711,13 @@ const characterData = [
 {
       name: 'Exeggecute',
       Number: 102,
-      type: 'Grass', 'Psychic',
+      type: 'Grass, Psychic',
       generation: '1',
 },
 {
       name: 'Exeggutor',
       Number: 103,
-      type: 'Grass', 'Psychic',
+      type: 'Grass, Psychic',
       generation: '1',
 },
 {
@@ -765,13 +765,13 @@ const characterData = [
 {
     name: 'Rhyhorn',
       Number: 111,
-      type: 'Ground', 'Rock'
+      type: 'Ground, Rock',
       generation: '1',
 },
 {
     name: 'Rhydon',
       Number: 112,
-      type: 'Ground','Rock'
+      type: 'Ground, Rock',
       generation: '1',
 },
 {
@@ -825,25 +825,25 @@ const characterData = [
 {
     name: 'Starmie',
       Number: 121,
-      type: 'Water', 'Psychic',
+      type: 'Water, Psychic',
       generation: '1',
 },
 {
     name: 'Mr. Mime',
       Number: 122,
-      type: 'Psychic', 'Fairie',
+      type: 'Psychic, Fairie',
       generation: '1',
 },
 {
     name: 'Scyther',
       Number: 123,
-      type: 'Bug', 'Flying',
+      type: 'Bug, Flying',
       generation: '1',
 },
 {
     name: 'Jynx',
       Number: 124,
-      type: 'Ice', 'Psychic',
+      type: 'Ice, Psychic',
       generation: '1',
 },
 {
@@ -880,13 +880,13 @@ const characterData = [
 {
     name: 'Gyarados',
       Number: 130,
-      type: 'Water', 'Flying',
+      type: 'Water, Flying',
       generation: '1',
 },
 {
     name: 'Lapras',
       Number: 131,
-      type: 'Water', 'Ice',
+      type: 'Water, Ice',
       generation: '1',
 },
 {
@@ -928,31 +928,31 @@ const characterData = [
 {
     name: 'Omanyte',
       Number: 138,
-      type: 'Water', 'Rock',
+      type: 'Water, Rock',
       generation: '1',
 },
 {
     name: 'Omastar',
       Number: 139,
-      type: 'Water', 'Rock',
+      type: 'Water, Rock',
       generation: '1',
 },
 {
     name: 'Kabuto',
       Number: 140,
-      type: 'Water', 'Rock',
+      type: 'Water, Rock',
       generation: '1',
 },
 {
     name: 'Kabutops',
       Number: 141,
-      type: 'Water', 'Rock',
+      type: 'Water, Rock',
       generation: '1',
 },
 {
     name: 'Aerodactyl',
       Number: 142,
-      type: 'Rock', 'Flying',
+      type: 'Rock, Flying',
       generation: '1',
 },
 {
@@ -964,19 +964,19 @@ const characterData = [
 {
     name: 'Articuno',
       Number: 144,
-      type: 'Ice', 'Flying',
+      type: 'Ice, Flying',
       generation: '1',
 },
 {
     name: 'Zapdos',
       Number: 145,
-      type: 'Electric', 'Flying',
+      type: 'Electric, Flying',
       generation: '1',
 },
 {
     name: 'Moltres',
       Number: 146,
-      type: 'Fire', 'Flying',
+      type: 'Fire, Flying',
       generation: '1',
 },
 {
@@ -994,7 +994,7 @@ const characterData = [
 {
     name: 'Dragonite',
       Number: 149,
-      type: 'Dragon', 'Flying',
+      type: 'Dragon, Flying',
       generation: '1',
 },
 {
