@@ -44,3 +44,7 @@ body {
     background-color: #e1a5a5;
     border-radius: 50%;
 }
+
+.card-deck{
+    display: flex;
+}
