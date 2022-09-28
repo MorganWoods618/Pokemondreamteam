@@ -29,6 +29,9 @@ Character.init(
     filename: {
       type:DataTypes.STRING,
       //allowNull: false
+    },
+    catchrate: {
+      type: DataTypes.DECIMAL,
     }
   },
   {
