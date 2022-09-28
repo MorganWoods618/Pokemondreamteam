@@ -48,3 +48,7 @@ body {
 .card-deck{
     display: flex;
 }
+
+.loginphoto {
+    border-radius: 4%;
+}
