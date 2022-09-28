@@ -1,11 +1,12 @@
 const { Character } = require('../models');
 
-const characterdata = [
+const characterData = [
     {
       name: 'Bulbasaur',
       Number: 1,
       type: 'Grass, Poison',
       generation: '1',
+      filename: '001Bulbasaur.png',
       catchrate: 11.9,
     },
     {
@@ -13,6 +14,7 @@ const characterdata = [
       Number: 2,
       type: 'Grass, Poison',
       generation: '1',
+      filename: '002Ivysaur.png',
       catchrate: 11.9,
     },
     {
@@ -87,7 +89,7 @@ const characterdata = [
     },
     {
       name: 'Weedle',
-      Number: 13
+      Number: 13,
       type: 'Bug, Poison',
       generation: '1',
       catchrate: 43.9,
@@ -476,7 +478,7 @@ const characterdata = [
       type: 'Fighting',
       generation: '1',
       catchrate: 17.5,
-    }
+    },
     {
       name: 'Bellsprout',
       Number: 69,
@@ -693,5 +695,7 @@ const characterdata = [
       type: 'Water',
       generation: '1',
       catchrate: 17.5,
-    }
+    }]
 
+    const seedCharacters = () => Character.bulkCreate(characterData)
+    module.exports = seedCharacters;
