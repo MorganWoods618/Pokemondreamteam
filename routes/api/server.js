@@ -59,6 +59,7 @@ var sessionChecker = (req, res, next) => {
 
 // route for Home-Page
 app.get("/", sessionChecker, (req, res) => {
+  console.log("login")
   res.redirect("/login");
 });
 
@@ -87,6 +88,7 @@ app
 app
   .route("/login")
   .get((req, res) => {
+    console.log("welcome to api login")
     //res.sendFile(__dirname + '/public/login.html);
     res.render("login", hbsContent);
   })
@@ -107,7 +109,7 @@ app
   });
 
 //route for user's dashboard
-app.et("/dashboard", (req, res) => {
+app.get("/dashboard", (req, res) => {
   if (req.session.user && req.cookies.user_sid) {
     hbsContent.loggedin = true;
     hbsContent.userName = req.session.user.username;

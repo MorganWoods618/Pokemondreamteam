@@ -90,6 +90,7 @@ var sessionChecker = (req, res, next) => {
 
 // route for Home-Page
 app.get('/', sessionChecker, (req, res) => {
+    console.log("login")
     res.redirect('/login');
 });
 
@@ -125,6 +126,7 @@ app.route('/signup')
 // route for user Login
 app.route('/login')
     .get(sessionChecker, (req, res) => {
+        console.log("welcome to login")
         //res.sendFile(__dirname + '/public/login.html');
         res.render('login', hbsContent);
     })
@@ -147,6 +149,7 @@ app.route('/login')
 
 // route for user's dashboard
 app.get('/dashboard', (req, res) => {
+    console.log("welcome to dashboard")
     if (req.session.user && req.cookies.user_sid) {
 		hbsContent.loggedin = true; 
 		hbsContent.userName = req.session.user.username; 
