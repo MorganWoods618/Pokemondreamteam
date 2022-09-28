@@ -6,7 +6,7 @@ const characterData = [
       Number: 1,
       type: 'Grass, Poison',
       generation: '1',
-      filename: '001Bulbasaur.png',
+      filename: '001.png',
       catchrate: 11.9,
     },
     {
@@ -14,7 +14,7 @@ const characterData = [
       Number: 2,
       type: 'Grass, Poison',
       generation: '1',
-      filename: '002Ivysaur.png',
+      filename: '002.png',
       catchrate: 11.9,
     },
     {
