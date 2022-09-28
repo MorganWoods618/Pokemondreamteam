@@ -24,7 +24,6 @@ Character.init(
     },
     generation: {
       type: DataTypes.INTEGER,
-    
     },
     filename: {
       type:DataTypes.STRING,
