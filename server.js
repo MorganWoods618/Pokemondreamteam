@@ -22,12 +22,6 @@ app.use(express.static('public'));
 app.set('view engine', 'handlebars');
 
 app.use(require('./routes/api/characterRoutes'));
-
-//helpers
-Handlebars.registerHelper('json', function(context) {
-    return JSON.stringify(context).replace(/"/g, '&quot;');
-});
-
 // set morgan to log info about our requests for development use.
 
 // app.use(morgan("tiny"));
@@ -186,6 +180,54 @@ app.get('/logout', (req, res) => {
 // app.use(function (req, res, next) {
 //   res.status(404).send("Sorry can't find that!")
 // });
+app.use(routes)
+sequelize.sync({force:false}).then(function(){
+// start the express server
+app.listen(app.get('port'), () => console.log(`Server listening on http://localhost:${app.get('port')}`));
+})
+
+const express = require('express')
+const app = express()
+const bcrypt = require('bcrypt')
+
+
+
+app.use(express.json())
+//database information input here//
+const users = []
+
+app.get('/users', (req, res) => {
+    res.json(users)
+})
+
+app.post('/users', async (req, res) => {
+    try {
+        
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        const user = { name: req.body.name, password: hashedPassword }
+        users.push(user)
+        res.status(201).send()
+    } catch {
+        res.status(500).send()
+    }    
+})
+
+app.post('/users/login', async (req, res) => {
+    const user = users.find(user => user.name = req.body.name)
+    if (user == null) {
+        return res.status(400).send('Cannot find user')
+    }
+    try {
+       if(await bcrypt.compare(req.body.password, user.password)) {
+        res.send('success')
+       } else {
+        res.send('Not Allowed')
+       }
+    } catch {
+        res.status(500).send()
+    }
+})
+
 app.use(routes)
 sequelize.sync({force:false}).then(function(){
 // start the express server
