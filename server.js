@@ -22,6 +22,12 @@ app.use(express.static('public'));
 app.set('view engine', 'handlebars');
 
 app.use(require('./routes/api/characterRoutes'));
+
+//helpers
+Handlebars.registerHelper('json', function(context) {
+    return JSON.stringify(context).replace(/"/g, '&quot;');
+});
+
 // set morgan to log info about our requests for development use.
 
 // app.use(morgan("tiny"));
