@@ -1,19 +1,42 @@
-    <img src="images/whos that pokemon.png" class="header-photo " alt="pokeball" />
-    <div class="container row">
-            <div id="loginbutton" class="col-sm-4 px-6">
-                <form action="/login" method="post">
-                    <div>
-                        <label>Username:</label>
-                        <input type="text" name="username"/>
-                    </div>
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" name="password"/>
-                    </div>
-                    <div>
-                        <input type="submit" value="Log In"/>
-                    </div>
-                </form>   
-                <img src="images/ash.png">               
-            </div>         
+<img src="images/whos that pokemon.png" class="header-photo " alt="pokeball" />
+<div class="container row">
+    <div id="loginbutton" class="col-sm-4 px-6 jumbotron">
+        <form action="/login" method="post">
+            Log In
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username" />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password" />
+            </div>
+            <div>
+                <input type="submit" value="Log In" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container row">
+    <div class="jumbotron col-sm-4 pull-center">
+        Sign Up
+        <form action="/signup" method="post">
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username" />
+            </div>
+            <div>
+                <label>Email:</label>
+                <input type="text" name="email" />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password" />
+            </div>
+            <div>
+                <input type="submit" value="Sign Up" />
+            </div>
+        </form>
+    </div>
 </div>
