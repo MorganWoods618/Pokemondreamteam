@@ -91,7 +91,7 @@ var sessionChecker = (req, res, next) => {
 // route for Home-Page
 app.get('/', sessionChecker, (req, res) => {
     console.log("login")
-    res.redirect('/login');
+    // res.redirect('/login');
 });
 
 
