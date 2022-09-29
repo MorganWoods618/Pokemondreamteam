@@ -1,4 +1,5 @@
 const Character = require("./Character");
+const User = require("./user")
 //associations go here
 
 
@@ -12,4 +13,4 @@ const Character = require("./Character");
 
 
 
-module.exports = {Character}
+module.exports = {Character, User}

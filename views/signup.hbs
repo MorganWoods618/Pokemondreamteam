@@ -1,27 +1,23 @@
-{{!-- <div class="container row">
+<div class="container row">
     <div class="jumbotron col-sm-4 pull-center">
-        <form action="/signup" method="post">
+        <form id='signup-form' action="/signup" method="post">
             <div>
                 <label>Username:</label>
-                <input type="text" name="username" />
-            </div>
-            <div>
-                <label>Email:</label>
-                <input type="text" name="email" />
+                <input id="username" type="text" name="username" />
             </div>
             <div>
                 <label>Password:</label>
-                <input type="password" name="password" />
+                <input id="password" type="password" name="password" />
             </div>
             <div>
                 <input class="btn btn-primary" type="submit" value="Sign Up" />
             </div>
         </form>
     </div>
-</div> --}}
+</div>
 
 
-{{!-- 
+
 <div class="container text-center">
     <div class="row justify-content-evenly">
         <div class="col-4">
@@ -44,7 +40,7 @@
             </div>
             
         </div>
-    </div> --}}
+    </div>
 
     {{#each characters}}
     <div class="row justify-content-evenly">
@@ -67,3 +63,5 @@
         </div>
     </div>
     {{/each}}
+
+    <script src="/js/signup.js"></script>

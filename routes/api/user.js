@@ -1,57 +1,54 @@
-var Sequelize = require("sequelize");
-var bcrpt = require("bcrypt");
-
-const sequelize = new Sequelize("ourDatabase", "root", "password", {
-  host: "localhost",
-  port: 3306,
-  dialect: "mysql",
-  pool: {
-    max: 10,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-  operatorsAliases: false,
+const router = require('express').Router();
+const { User } = require('../../models');
+router.post('/', async (req, res) => {
+  try {
+    const newUser = await User.create({
+      username: req.body.username,
+      password: req.body.password,
+    });
+    req.session.save(() => {
+      req.session.userId = newUser.id;
+      req.session.username = newUser.username;
+      req.session.loggedIn = true;
+      res.json(newUser);
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
-
-//set up User table
-var User = sequelize.define("users", {
-  id: {
-    type: Sequelize.INTEGER,
-    unique: true,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  username: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
-  },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
+router.post('/login', async (req, res) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
+    if (!user) {
+      res.status(400).json({ message: 'No user account found!' });
+      return;
+    }
+    const validPassword = user.checkPassword(req.body.password);
+    if (!validPassword) {
+      res.status(400).json({ message: 'No user account found!' });
+      return;
+    }
+    req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      req.session.loggedIn = true;
+      res.json({ user, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    res.status(400).json({ message: 'No user account found!' });
+  }
 });
-
-User.beforeCreate((user, options) => {
-  const salt = bcrypt.genSaltSync();
-  user.password = bcrypt.hasSync(user.password, salt);
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
-
-User.prototype.validPassword = function (password) {
-  return bcrpt.compareSync(pasword, this.password);
-};
-
-//create all defined tables in the specified database
-sequelize
-  .sync()
-  .then(() =>
-    console.log(
-      "user tables has been successfully created if one does not exist"
-    )
-  )
-  .catch((error) => console.log("this error occurred", error));
-
-// export User module for other files
-module.exports = User;
+module.exports = router;

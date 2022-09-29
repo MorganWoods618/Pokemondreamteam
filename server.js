@@ -63,7 +63,7 @@ app.use(session({
 }));
 
 // handle bars config
-app.engine('hbs', hbs({extname: 'hbs',defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'})); 
+app.engine('hbs', hbs.engine({extname: 'hbs',defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'})); 
 app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'hbs'); 
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
@@ -180,8 +180,8 @@ app.get('/logout', (req, res) => {
 // app.use(function (req, res, next) {
 //   res.status(404).send("Sorry can't find that!")
 // });
-app.use(routes)
+app.use(routes);
 sequelize.sync({force:false}).then(function(){
 // start the express server
 app.listen(app.get('port'), () => console.log(`Server listening on http://localhost:${app.get('port')}`));
-})
+});
