@@ -9,6 +9,7 @@ var path = require('path');
 var sequelize = require('./config/connection')
 var routes = require('./routes');
 const Character = require('./models/Character');
+const User = require('./models/User')
 // invoke an instance of express application.
 var app = express();
 
@@ -64,6 +65,8 @@ app.use(session({
 
 // handle bars config
 app.engine('hbs', hbs({extname: 'hbs',defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'})); 
+
+//app.engine('hbs', hbs.engine); 
 app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'hbs'); 
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.

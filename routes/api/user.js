@@ -1,57 +1,73 @@
-var Sequelize = require("sequelize");
-var bcrpt = require("bcrypt");
+const router = require('express').Router();
+const { User } = require('../../models');
 
-const sequelize = new Sequelize("ourDatabase", "root", "password", {
-  host: "localhost",
-  port: 3306,
-  dialect: "mysql",
-  pool: {
-    max: 10,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-  operatorsAliases: false,
+// CREATE new user
+router.post('/', async (req, res) => {
+  try {
+    const dbUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res.status(200).json(dbUserData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
-//set up User table
-var User = sequelize.define("users", {
-  id: {
-    type: Sequelize.INTEGER,
-    unique: true,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  username: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
-  },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
+// Login
+router.post('/login', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+
+    if (!dbUserData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    const validPassword = await dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res
+        .status(200)
+        .json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
-User.beforeCreate((user, options) => {
-  const salt = bcrypt.genSaltSync();
-  user.password = bcrypt.hasSync(user.password, salt);
+// Logout
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
-User.prototype.validPassword = function (password) {
-  return bcrpt.compareSync(pasword, this.password);
-};
-
-//create all defined tables in the specified database
-sequelize
-  .sync()
-  .then(() =>
-    console.log(
-      "user tables has been successfully created if one does not exist"
-    )
-  )
-  .catch((error) => console.log("this error occurred", error));
-
-// export User module for other files
-module.exports = User;
+module.exports = router;
