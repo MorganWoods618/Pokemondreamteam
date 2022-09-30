@@ -12,9 +12,9 @@ const Character = require('./models/Character');
 const User = require('./models/User')
 // invoke an instance of express application.
 var app = express();
-
+var port = process.env.PORT || 3001;
 // set our application port
-app.set('port', 3001);
+app.set('port', port);
 
 //image
 app.use(express.static('public'));
